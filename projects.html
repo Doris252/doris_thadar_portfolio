@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - Doris Thadar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 420px);
+      gap: 24px;
+      background: transparent;
+      justify-content: center;
+    }
+    .project-card {
+      background: var(--white);
+      text-decoration: none;
+      color: var(--ink);
+      display: block;
+      transition: background 0.2s, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .project-card:hover {
+      background: var(--blue-muted);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(122, 24, 24, 0.12);
+    }
+    .project-thumb {
+      height: 280px;
+      background: #2a1414;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      opacity: 0.85;
+      transition: opacity 0.3s;
+    }
+    .project-card:hover .project-thumb img { opacity: 1; }
+    .project-thumb::after {
+      content: attr(data-tag);
+      position: absolute;
+      bottom: 14px; left: 18px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cream);
+      background: var(--red);
+      padding: 4px 10px;
+      opacity: 1;
+    }
+    .project-thumb::before {
+      content: attr(data-num);
+      position: absolute;
+      top: 16px; right: 18px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--cream);
+      opacity: 0.4;
+    }
+    .project-body { padding: 26px 28px 32px; }
+    .project-body h3 {
+      font-family: var(--serif);
+      font-size: 25px;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+    .project-body p { font-size: 13px; color: var(--ink-soft); line-height: 1.75; margin-bottom: 16px; }
+    .project-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+    .project-badge {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--red);
+      border: 1px solid var(--red);
+      padding: 3px 8px;
+      opacity: 0.75;
+    }
+
+    @media (max-width: 860px) {
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="circuit-spine"></div>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo" id="logoLink">DT PORTFOLIO</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="page">
+    <!-- <p class="section-eyebrow">// Projects</p> -->
+    <h1 class="page-title">Projects</h1>
+    <p class="page-sub">From embedded systems and PCB design to web applications, these projects reflect my journey as an engineering student, each one building new technical skills, creativity, and real-world problem-solving experience.</p>
+
+    <div class="projects-grid">
+
+      <a href="projects/aquaponics.html" class="project-card">
+        <div class="project-thumb" data-num="01" data-tag="1st Prize · NYP TechNexus">
+          <img src="images/4AquaOverview.png" alt="Smart Aquaponics System" />
+        </div>
+        <div class="project-body">
+          <h3>Smart Aquaponics System</h3>
+          <p>Team-developed automated aquaponics system with real-time monitoring and environmental control using M5Stack and UIFlow2 to support sustainable multi-crop farming.</p>
+          <div class="project-stack">
+            <span class="project-badge">M5Stack</span>
+            <span class="project-badge">UIFlow2</span>
+            <span class="project-badge">MQTT</span>
+            <span class="project-badge">IoT</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/homeguardian.html" class="project-card">
+        <div class="project-thumb" data-num="02" data-tag="Distinction">
+          <img src="images/HomePrototype.png" alt="Smart Home Guardian System" />
+        </div>
+        <div class="project-body">
+          <h3>Smart Home Guardian System</h3>
+          <p>IoT-based home security system with real-time monitoring, sensor integration, and remote alerts to improve residential safety and home automation.</p>
+          <div class="project-stack">
+            <span class="project-badge">BBBW</span>
+            <span class="project-badge">Sensors</span>
+            <span class="project-badge">IoT</span>
+            <span class="project-badge">JavaScript</span>
+            <span class="project-badge">HTML/CSS</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/hackathon.html" class="project-card">
+        <div class="project-thumb" data-num="03" data-tag="1st Prize (Pre-University Level) . Nice Hack">
+          <img src="images/HackathonPrize.jpg" alt="NiCE Hack" />
+        </div>
+        <div class="project-body">
+          <h3>NiCE Hack 2025: Hardware Cybersecurity Hackathon @ NTU</h3>
+          <p>Collaborated in a team to perform Side Channel Attacks on AES hardware using Electromagnetic (EM) analysis and Correlation Power Analysis (CPA), earning 1st Place in the Pre-University category.</p>
+          <div class="project-stack">
+            <span class="project-badge">Hardware Cybersecurity</span>
+            <span class="project-badge">side-channel-attack</span>
+            <span class="project-badge">AES</span>
+            <span class="project-badge">CPA</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/pcb.html" class="project-card">
+        <div class="project-thumb" data-num="04" data-tag="Eagle CAD">
+          <img src="images/3PCBlayout.png" alt="PCB Design Project" />
+        </div>
+        <div class="project-body">
+          <h3>PCB Design Project</h3>
+          <p>Designed and developed a custom PCB based on the ATmega328P microcontroller, integrating a 3-digit seven-segment display, push buttons, and USB connectivity.</p>
+          <div class="project-stack">
+            <span class="project-badge">Eagle CAD</span>
+            <span class="project-badge">ATmega328P</span>
+            <span class="project-badge">Circuit Design</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/escalator.html" class="project-card">
+        <div class="project-thumb" data-num="05" data-tag="Distinction">
+          <img src="images/1EscalatorOverview.png" alt="Escalator Automation System" />
+        </div>
+        <div class="project-body">
+          <h3>Escalator Automation System</h3>
+          <p>Prototype energy-saving escalator that activates only when users are detected, using infrared sensors, servo motors, and embedded control logic.</p>
+          <div class="project-stack">
+            <span class="project-badge">Arduino</span>
+            <span class="project-badge">IR Sensors</span>
+            <span class="project-badge">PyCharm</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/dornick.html" class="project-card">
+        <div class="project-thumb" data-num="06" data-tag="Python · Desktop App">
+          <img src="images/2DornickShop.png" alt="DorNick Grocery App" />
+        </div>
+        <div class="project-body">
+          <h3>DorNick - Grocery App</h3>
+          <p>Full-stack grocery shopping application featuring product browsing, shopping cart management, price calculations, and simulated payment processing.</p>
+          <div class="project-stack">
+            <span class="project-badge">Python</span>
+            <span class="project-badge">CustomTkinter</span>
+            <span class="project-badge">GUI</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/foodstall.html" class="project-card">
+        <div class="project-thumb" data-num="07" data-tag="HTML · CSS">
+          <img src="images/5FoodStall.png" alt="Food Stall Website" />
+        </div>
+        <div class="project-body">
+          <h3>Food Stall Website</h3>
+          <p>Responsive website developed for an NYP Japanese food stall, featuring menu browsing, membership registration, and online ordering functionality.</p>
+          <div class="project-stack">
+            <span class="project-badge">HTML5</span>
+            <span class="project-badge">CSS3</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/calculator.html" class="project-card">
+        <div class="project-thumb" data-num="08" data-tag="C#">
+          <img src="images/2DornickCard.png" alt="Calculator App" />
+        </div>
+        <div class="project-body">
+          <h3>Calculator App</h3>
+          <p>Desktop calculator application with a clean graphical interface, supporting standard arithmetic operations while demonstrating GUI development and event-driven programming.</p>
+          <div class="project-stack">
+            <span class="project-badge">CSharp</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="projects/doodle.html" class="project-card">
+        <div class="project-thumb" data-num="09" data-tag="C#">
+          <img src="images/2DornickEnd.png" alt="Doodle App" />
+        </div>
+        <div class="project-body">
+          <h3>Doodle App</h3>
+          <p>Interactive drawing application featuring freehand sketching, colour selection, and canvas controls, built to explore graphical user interface design.</p>
+          <div class="project-stack">
+            <span class="project-badge">CSharp</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Portfolio. All rights reserved.</span>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Stall Website — Doris Thadar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .back-link {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--red); }
+
+    .project-meta-row {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 40px 0 56px;
+      padding: 28px 0;
+      border-top: 1px solid var(--cream-dark);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .meta-item .label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+    .meta-item .value { font-size: 14px; color: var(--ink-soft); }
+
+    /* CONTENT ROW — writeup left, image right */
+    .content-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-bottom: 56px;
+    }
+    .project-body-text h2 {
+      font-size: 28px;
+      margin: 40px 0 16px;
+    }
+    .project-body-text h2:first-child { margin-top: 0; }
+    .project-body-text p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+    .side-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* STACK TAGS */
+    .stack-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 56px; }
+    .project-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--red);
+      border: 1px solid var(--red);
+      padding: 5px 12px;
+    }
+
+    /* LINKS ROW */
+    .project-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 56px;
+    }
+    .github-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border: 1px solid var(--cream-dark);
+      padding: 10px 20px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .github-link:hover { border-color: var(--red); color: var(--red-light); }
+    .github-link svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+
+    /* NAV FOOTER */
+    .project-nav-footer {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 40px;
+      border-top: 1px solid var(--cream-dark);
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .project-nav-footer a { color: var(--red); text-decoration: none; }
+    .project-nav-footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 860px) {
+      .content-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="circuit-spine"></div>
+
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo">DT PORTFOLIO</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../projects.html" class="active">Projects</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="page">
+    <a href="../projects.html" class="back-link">← Back to projects</a>
+
+    <p class="section-eyebrow">// Project 07</p>
+    <h1 class="page-title">Food Stall Website</h1>
+    <p class="page-sub">Responsive multi-page website for a Japanese food stall at NYP's South Canteen — built with HTML5, CSS3, and JavaScript.</p>
+
+    <div class="project-meta-row">
+      <div class="meta-item">
+        <div class="label">Type</div>
+        <div class="value">Individual Project · Web Development</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Stack</div>
+        <div class="value">HTML5 · CSS3 · JavaScript</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Context</div>
+        <div class="value">School Module · NYP South Canteen</div>
+      </div>
+    </div>
+
+    <!-- WRITEUP LEFT, IMAGE RIGHT -->
+    <div class="content-row">
+      <div class="project-body-text">
+        <h2>About the project</h2>
+        <p>I designed a responsive, multi-page website for a popular Japanese stall located in Nanyang Polytechnic's South Canteen. The site showcases the stall's best-selling rice bowls (Donburi), provides a clean and accessible menu layout, and encourages user engagement through intuitive navigation and visuals.</p>
+
+        <h2>How it's built</h2>
+        <p>Built with HTML5, CSS3, and basic JavaScript, the project features a responsive navigation bar and structured styling for clarity. I also implemented a simple sign-up form with basic form validation. The goal was to create a mobile-friendly interface while practising user-centric design and file organisation.</p>
+
+        <h2>Outcome</h2>
+        <p>It was part of a school module and helped sharpen my front-end development skills and web design confidence.</p>
+      </div>
+
+      <!-- IMAGE BESIDE WRITEUP -->
+      <img class="side-img" src="../images/5FoodStall.png" alt="Japanese Food Stall Website" />
+    </div>
+
+    <!-- VIDEO -->
+    <div class="video-section" style="margin-bottom: 56px;">
+      <h2 style="font-family: var(--serif); font-size: 28px; font-weight: 300; margin-bottom: 20px;">Demo</h2>
+      <video controls style="width: 100%; max-width: 720px; display: block;">
+        <source src="../videos/foodstall-demo.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- TECH STACK -->
+    <div class="stack-row">
+      <span class="project-badge">HTML5</span>
+      <span class="project-badge">CSS3</span>
+      <span class="project-badge">JavaScript</span>
+      <span class="project-badge">Responsive Design</span>
+      <span class="project-badge">Form Validation</span>
+    </div>
+
+    <!-- LINKS -->
+    <div class="project-links">
+      <a href="https://github.com/Doris252/Canteen_Web_Page.git" target="_blank" class="github-link">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+        View on GitHub
+      </a>
+    </div>
+
+    <!-- PREV / NEXT -->
+    <div class="project-nav-footer">
+      <a href="dornick.html">← Previous: DorNick</a>
+      <a href="calculator.html">Next: Calculator App →</a>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Portfolio. All rights reserved.</span>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+
+</body>
+</html>

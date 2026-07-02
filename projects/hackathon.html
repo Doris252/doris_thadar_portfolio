@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NiCE Hack 2025 — Doris Thadar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .back-link {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--red); }
+
+    .project-meta-row {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 40px 0 56px;
+      padding: 28px 0;
+      border-top: 1px solid var(--cream-dark);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .meta-item .label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+    .meta-item .value { font-size: 14px; color: var(--ink-soft); }
+
+    .project-hero-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 56px;
+    }
+
+    .project-body-text {
+      max-width: 680px;
+      margin-bottom: 56px;
+    }
+    .project-body-text h2 {
+      font-size: 28px;
+      margin: 40px 0 16px;
+    }
+    .project-body-text h2:first-child { margin-top: 0; }
+    .project-body-text p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+    .project-body-text a {
+      color: var(--red);
+      text-decoration: none;
+      border-bottom: 1px solid var(--red);
+      padding-bottom: 1px;
+      transition: opacity 0.2s;
+    }
+    .project-body-text a:hover { opacity: 0.7; }
+
+    /* IMAGE GRID */
+    .img-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+    .img-grid .full {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .img-grid .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .img-grid .two-col img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .img-placeholder {
+      height: 220px;
+      background: var(--cream-dark);
+      border: 1px dashed var(--ink-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-align: center;
+      padding: 16px;
+    }
+
+    /* STACK TAGS */
+    .stack-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 56px; }
+    .project-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--red);
+      border: 1px solid var(--red);
+      padding: 5px 12px;
+    }
+
+    /* LINKS ROW */
+    .project-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 56px;
+    }
+    .github-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border: 1px solid var(--cream-dark);
+      padding: 10px 20px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .github-link:hover { border-color: var(--red); color: var(--red-light); }
+    .github-link svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+
+    /* NAV FOOTER */
+    .project-nav-footer {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 40px;
+      border-top: 1px solid var(--cream-dark);
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .project-nav-footer a { color: var(--red); text-decoration: none; }
+    .project-nav-footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 700px) {
+      .img-grid .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="circuit-spine"></div>
+
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo">DT PORTFOLIO</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../projects.html" class="active">Projects</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="page">
+    <a href="../projects.html" class="back-link">← Back to projects</a>
+
+    <p class="section-eyebrow">// Project 03</p>
+    <h1 class="page-title">NiCE Hack 2025</h1>
+    <p class="page-sub">Hardware Cybersecurity Hackathon @ NTU — 1st Place, Pre-University Category.</p>
+
+    <div class="project-meta-row">
+      <div class="meta-item">
+        <div class="label">Event</div>
+        <div class="value">NiCE Hack 2025 · NTU EEE × NiCE</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Type</div>
+        <div class="value">Team · Hardware Cybersecurity</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Result</div>
+        <div class="value">1st Prize — Pre-University Category</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Date</div>
+        <div class="value">September 2025</div>
+      </div>
+    </div>
+
+    <!-- HERO IMAGE -->
+    <img class="project-hero-img" src="../images/HackathonPrize.jpg" alt="NiCE Hack 2025 — 1st Prize" />
+
+    <!-- WRITEUP -->
+    <div class="project-body-text">
+      <h2>About the event</h2>
+      <p>NiCE Hack 2025 is a hardware cybersecurity hackathon co-organised by NTU's School of Electrical & Electronic Engineering and the National Integrated Centre for Evaluation (NiCE). The challenge focused on Side Channel Attacks (SCA) — a real-world hardware security technique used to extract secret cryptographic keys by analysing physical signals like electromagnetic emissions and power consumption, rather than attacking the algorithm itself.</p>
+
+      <h2>What we did</h2>
+      <p>Our team performed Side Channel Attacks on AES (Advanced Encryption Standard) hardware implementations. We used <strong>Electromagnetic (EM) analysis</strong> to capture signal traces from the target device, then applied <strong>Correlation Power Analysis (CPA)</strong> to statistically correlate those traces with hypothetical power models — ultimately recovering the secret AES key without ever breaking the encryption mathematically.</p>
+
+      <h2>My contribution</h2>
+      <p>[ Describe your specific role in the team — what part of the attack pipeline or analysis you worked on, any tools or scripts you wrote, or how you contributed to the final result. ]</p>
+
+      <h2>What I learned</h2>
+      <p>This was my first exposure to hardware security and side-channel analysis. It completely changed how I think about security — even mathematically unbreakable encryption can be compromised through physical implementation. Working under competition pressure with a tight timeline also sharpened my ability to pick up unfamiliar concepts quickly and collaborate effectively under stress.</p>
+    </div>
+
+    <!-- IMAGE GRID -->
+    <div class="img-grid">
+      <div class="two-col">
+        <div class="img-placeholder">[ EM trace capture setup ]</div>
+        <div class="img-placeholder">[ CPA analysis / results ]</div>
+      </div>
+      <div class="two-col">
+        <div class="img-placeholder">[ Team photo at NTU ]</div>
+        <div class="img-placeholder">[ Prize / award ceremony ]</div>
+      </div>
+    </div>
+
+    <!-- TECH STACK -->
+    <div class="stack-row">
+      <span class="project-badge">Hardware Cybersecurity</span>
+      <span class="project-badge">Side-Channel Attack</span>
+      <span class="project-badge">AES</span>
+      <span class="project-badge">Correlation Power Analysis</span>
+      <span class="project-badge">EM Analysis</span>
+      <span class="project-badge">Python</span>
+      <span class="project-badge">Cryptography</span>
+    </div>
+
+    <!-- PREV / NEXT -->
+    <div class="project-nav-footer">
+      <a href="homeguardian.html">← Previous: Home Guardian</a>
+      <a href="pcb.html">Next: PCB Design →</a>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Portfolio. All rights reserved.</span>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+
+</body>
+</html>

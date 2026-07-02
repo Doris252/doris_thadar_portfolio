@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume - Doris Thadar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .resume-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    /* TWO COLUMN LAYOUT */
+    .resume-columns {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 0;
+      border: 1px solid var(--cream-dark);
+    }
+
+    /* LEFT COLUMN */
+    .resume-left {
+      background: #F0EAE2;
+      padding: 36px 28px;
+      border-right: 1px solid var(--cream-dark);
+    }
+
+    /* RIGHT COLUMN */
+    .resume-right {
+      background: var(--white);
+      padding: 36px 36px;
+    }
+
+    .resume-block { margin-bottom: 36px; }
+    .resume-block:last-child { margin-bottom: 0; }
+
+    .resume-block h2 {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 14px;
+      font-weight: 600;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    /* CONTACT */
+    .contact-list { display: flex; flex-direction: column; gap: 8px; }
+    .contact-list a, .contact-list span {
+      font-size: 12px;
+      color: var(--ink-soft);
+      text-decoration: none;
+      line-height: 1.5;
+    }
+    .contact-list a:hover { color: var(--red); }
+
+    /* SKILLS */
+    .skill-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-pill {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-soft);
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      padding: 4px 10px;
+    }
+
+    /* SKILL GROUPS (hard skills with categories) */
+    .skill-group { margin-bottom: 12px; }
+    .skill-group-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--red);
+      letter-spacing: 0.08em;
+      margin-bottom: 5px;
+    }
+    .skill-group .skill-list { gap: 5px; }
+
+    /* TIMELINE */
+    .resume-timeline {
+      border-left: 1px solid var(--cream-dark);
+      padding-left: 24px;
+      margin-left: 4px;
+    }
+    .timeline-item { position: relative; padding-bottom: 28px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -29px;
+      top: 6px;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--red);
+    }
+    .timeline-period {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--red);
+      letter-spacing: 0.1em;
+      margin-bottom: 3px;
+    }
+    .timeline-item h3 {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 1px;
+      color: var(--ink);
+    }
+    .timeline-org {
+      font-size: 12px;
+      color: var(--ink-muted);
+      margin-bottom: 8px;
+    }
+    .timeline-item ul { padding-left: 16px; }
+    .timeline-item li {
+      font-size: 12px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 2px;
+    }
+
+    /* ACHIEVEMENTS */
+    .achievements-list { display: flex; flex-direction: column; gap: 16px; }
+    .achievement-item .org {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .achievement-item ul { padding-left: 16px; margin: 0; }
+    .achievement-item li {
+      font-size: 12px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+    }
+
+    @media (max-width: 860px) {
+      .resume-columns { grid-template-columns: 1fr; }
+      .resume-left { border-right: none; border-bottom: 1px solid var(--cream-dark); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="circuit-spine"></div>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">DT PORTFOLIO</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resume.html" class="active">Resume</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="page">
+    <div class="resume-header-row">
+      <div>
+        <p class="section-eyebrow">// Resume</p>
+        <h1 class="page-title">Thadar Hpone Myat (Doris)</h1>
+        <p class="page-sub" style="margin-bottom:0;">Electronic &amp; Computer Engineering Student · Nanyang Polytechnic · GPA 4.0</p>
+      </div>
+      <a href="resume.pdf" class="btn-primary" download>Download PDF</a>
+    </div>
+
+    <div class="resume-columns">
+
+      <!-- LEFT COLUMN -->
+      <div class="resume-left">
+
+        <div class="resume-block">
+          <h2>Contact</h2>
+          <div class="contact-list">
+            <a href="tel:+6584076693">+65 8407 6693</a>
+            <a href="mailto:thadarhpm22@gmail.com">thadarhpm22@gmail.com</a>
+            <span>Singapore</span>
+            <a href="https://www.linkedin.com/in/thadar-hpone-myat-9a149136b" target="_blank">LinkedIn</a>
+            <a href="contact.html">Digital Portfolio</a>
+          </div>
+        </div>
+
+        <div class="resume-block">
+          <h2>Education</h2>
+          <div class="achievements-list">
+            <div class="achievement-item">
+              <div class="org" style="font-size:12px;">Diploma in Electronic &amp; Computer Engineering</div>
+              <ul>
+                <li>Nanyang Polytechnic</li>
+                <li>CGPA: 4.0 (Graduating in 2027)</li>
+              </ul>
+            </div>
+            <div class="achievement-item">
+              <div class="org" style="font-size:12px;">International GCSE "O"-Levels</div>
+              <ul>
+                <li>4 Distinctions</li>
+                <li>No. 2, Basic Education High School, Myanmar</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-block">
+          <h2>Languages</h2>
+          <div class="skill-list">
+            <span class="skill-pill">English — Fluent</span>
+            <span class="skill-pill">Burmese — Fluent</span>
+          </div>
+        </div>
+
+        <div class="resume-block">
+          <h2>Hard Skills</h2>
+          <div class="skill-group">
+            <div class="skill-group-label">Programming</div>
+            <div class="skill-list">
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">C</span>
+              <span class="skill-pill">C#</span>
+              <span class="skill-pill">HTML</span>
+              <span class="skill-pill">CSS</span>
+              <span class="skill-pill">JavaScript</span>
+              <span class="skill-pill">C++</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-label">Embedded Systems</div>
+            <div class="skill-list">
+              <span class="skill-pill">ATmega328P</span>
+              <span class="skill-pill">M5Stack</span>
+              <span class="skill-pill">ESP32</span>
+              <span class="skill-pill">IoT Sensor Integration</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-label">Hardware</div>
+            <div class="skill-list">
+              <span class="skill-pill">PCB Design</span>
+              <span class="skill-pill">Soldering</span>
+              <span class="skill-pill">Circuit Analysis</span>
+              <span class="skill-pill">Digital Electronics</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-label">Software Tools</div>
+            <div class="skill-list">
+              <span class="skill-pill">Eagle CAD</span>
+              <span class="skill-pill">VS Code</span>
+              <span class="skill-pill">Arduino</span>
+              <span class="skill-pill">CustomTkinter</span>
+              <span class="skill-pill">AutoCAD</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-block">
+          <h2>Soft Skills</h2>
+          <div class="skill-list">
+            <span class="skill-pill">Leadership</span>
+            <span class="skill-pill">Teamwork</span>
+            <span class="skill-pill">Patience &amp; Adaptability</span>
+            <span class="skill-pill">Communication</span>
+            <span class="skill-pill">Work Ethic</span>
+            <span class="skill-pill">Problem Solving</span>
+          </div>
+        </div>
+
+        <div class="resume-block">
+          <h2>Certificates</h2>
+          <div class="skill-list">
+            <span class="skill-pill">Embedded System Design</span>
+            <span class="skill-pill">Open-source Modular Electronic System Prototyping</span>
+            <span class="skill-pill">Crisis Management</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="resume-right">
+
+        <div class="resume-block">
+          <h2>Professional Summary</h2>
+          <p style="font-size:13px; color:var(--ink-soft); line-height:1.85;">Dedicated Electronic and Computer Engineering student with a solid foundation in circuit analysis, microcontroller programming, and PCB design. Enjoy working on practical projects involving electronics, embedded systems, and programming. Recognized for academic performance and strong work ethic through peer tutoring and mentoring roles. Eager to contribute to engineering projects and continue developing technical skills in real-world environments.</p>
+        </div>
+
+        <div class="resume-block">
+          <h2>Work Experience</h2>
+          <div class="resume-timeline">
+            <div class="timeline-item">
+              <div class="timeline-period">Jun 2023 — Present</div>
+              <h3>Private Home Tutor</h3>
+              <div class="timeline-org">Self-employed</div>
+              <ul>
+                <li>Provide personalised coaching for primary, secondary, and GCSE "O"-Level students in Mathematics, Principles of Accounting, and Science.</li>
+                <li>Help students achieve improved grades through structured lessons and feedback.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-period">Jun 2023 — Feb 2024</div>
+              <h3>Academic Tutor</h3>
+              <div class="timeline-org">Diplomatic School Yangon</div>
+              <ul>
+                <li>Assisted with teaching and administrative support for the International GCSE "O"-Level Department.</li>
+                <li>Assisted in co-curricular activities and school event organisation.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-period">Jun 2023 — Feb 2024</div>
+              <h3>Academic Tutor</h3>
+              <div class="timeline-org">Tr. Thuzar Education Centre</div>
+              <ul>
+                <li>Provided tutoring for IGCSE "O"-Level students in Physics, Accounting, and Business Studies.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-block">
+          <h2>Volunteering</h2>
+          <div class="resume-timeline">
+            <div class="timeline-item">
+              <h3>kidsREAD Volunteer</h3>
+              <div class="timeline-org">MacPherson Community Club · CCA Mentoring Club, NYP</div>
+              <ul>
+                <li>Collaborate with club members and organisers to create a fun, inclusive learning environment for improving English literacy.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <h3>Volunteer Tutor</h3>
+              <div class="timeline-org">Serangoon Garden Secondary School · CCA Mentoring Club, NYP</div>
+              <ul>
+                <li>Support Secondary 4 students in preparing past papers for their "O"-Level E-math and A-math.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <h3>Youth Mentor</h3>
+              <div class="timeline-org">Ywama Baptist Church, Myanmar · Feb 2023 — Present</div>
+              <ul>
+                <li>Organised origami and creative workshops to engage youth and encourage hands-on skills.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-block">
+          <h2>Achievements</h2>
+          <div class="achievements-list">
+            <div class="achievement-item">
+              <div class="org">Nanyang Polytechnic</div>
+              <ul>
+                <li>Director's List (Year 1, Year 2)</li>
+                <li>President, CCA SoundCard Singing Club (2026–2027)</li>
+                <li>Selected Peer Tutor for Mathematics &amp; Engineering Modules</li>
+              </ul>
+            </div>
+            <div class="achievement-item">
+              <div class="org">NiCE Hack Hackathon 2025</div>
+              <ul>
+                <li>Hardware Cybersecurity in Our Daily Lives (NiCE x NTU)</li>
+                <li>1st Prize, Pre-University Category</li>
+              </ul>
+            </div>
+            <div class="achievement-item">
+              <div class="org">TechNexus Event 2025</div>
+              <ul>
+                <li>1st Prize (Smart Aquaponics System M5Stack Project)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Portfolio. All rights reserved.</span>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+
+</body>
+</html>

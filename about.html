@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - Doris Thadar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .about-intro {
+      max-width: 700px;
+      margin-bottom: 10px;
+    }
+    .about-intro p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      line-height: 1.95;
+      margin-bottom: 18px;
+    }
+
+    .about-section { margin-bottom: 64px; }
+    .about-section-title {
+      font-size: 30px;
+      margin-bottom: 28px;
+    }
+    .about-section-title h2 {font-weight: 500;}
+
+    .hobby-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--cream-dark);
+    }
+    .hobby-card { background: var(--white); padding: 30px 10px; }
+    .hobby-card h3 { font-size: 21px; margin-bottom: 10px; font-weight: 300; }
+    .hobby-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.8; }
+
+    .volunteer-list { display: flex; flex-direction: column; gap: 28px; }
+    .volunteer-item { border-left: 2px solid var(--red); padding-left: 20px; }
+    .volunteer-item h3 { font-size: 20px; margin-bottom: 4px; font-weight: 300;}
+    .volunteer-item .org { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+    .volunteer-item p { font-size: 13px; color: var(--ink-soft); line-height: 1.8; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--cream-dark);
+    }
+    .testimonial-card { background: var(--white); padding: 32px 28px; }
+    .testimonial-quote {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .testimonial-quote::before {
+      content: '\201C';
+      font-size: 38px;
+      color: var(--red);
+      line-height: 0;
+      vertical-align: -12px;
+      margin-right: 3px;
+    }
+    .testimonial-author .name { font-size: 13px; font-weight: 500; color: var(--ink); }
+    .testimonial-author .role { font-family: var(--mono); font-size: 10px; color: var(--ink-muted); margin-top: 2px; letter-spacing: 0.08em; }
+
+    @media (max-width: 860px) {
+      .hobby-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="circuit-spine"></div>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">DT PORTFOLIO</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="page">
+    <!-- <p class="section-eyebrow">// About</p> -->
+    <h1 class="page-title">About Me</h1>
+
+    <div class="about-intro-row">
+      <div class="about-intro">
+        <p>I'm Thadar Hpone Myat (Doris), a Year 3 Electronic &amp; Computer Engineering student at Nanyang Polytechnic with a strong interest in embedded systems, IoT, automation, and hardware design.</p>
+        <p>Throughout my diploma, I have maintained a 4.0 GPA and been placed on the Director's List for four consecutive semesters. Beyond academics, I currently serve as the President of SoundCard, where I've strengthened my leadership, teamwork, and event management skills.</p>
+        <p>Outside of engineering, I've been actively involved in tutoring and mentoring, currently working as a private home tutor for primary, secondary, and GCSE "O"-Level students, where I've strengthened my communication, patience, and adaptability by tailoring lessons to different learning styles.</p>
+        <p>My engineering journey has given me opportunities to work on real-world projects, compete in a national hackathon and international engineering competitions, and present engineering innovations to Singapore's Senior Minister of State for Education. These experiences have strengthened my confidence in communicating technical ideas and collaborating with diverse teams.</p>
+        <p>I'm detail-oriented, adaptable, and I enjoy building practical solutions that combine hardware and software. I'm always eager to explore new technologies, take on meaningful challenges, and continue growing as an engineer.</p>
+      </div>
+      <img src="images/Solo.png" alt="Doris Thadar" class="about-photo" />
+    </div>
+
+    <div class="divider" style="margin-bottom:30px;"></div>
+
+    <!-- HOBBIES -->
+    <div class="about-section">
+      <h2 class="about-section-title" style="font-weight: 600;">Beyond Engineering</h2>  
+      <div class="hobby-grid">
+        <div class="hobby-card">
+          <div class="volunteer-list">
+            <div class="volunteer-item">
+              <h3>Music 🎶</h3>
+              <p>President of SoundCard and enjoy performing with the club.</p>
+            </div>
+            <div class="volunteer-item">
+              <h3>Crochet 🧶</h3>
+              <p>A relaxing hobby that helps me unwind and stay patient.</p>
+            </div>
+          </div>
+        </div>
+        <div class="hobby-card">
+          <div class="volunteer-list">
+            <div class="volunteer-item">
+              <h3>Origami 🦢</h3>
+              <p>A hobby that reflects my appreciation for precision and attention to detail.</p>
+            </div>
+            <div class="volunteer-item">
+              <h3>Movies & Reading 🎬</h3>
+              <p>I enjoy stories that spark creativity and inspiration.</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- VOLUNTEERING -->
+    <!-- <div class="about-section">
+      <h2 class="about-section-title">Volunteering</h2>
+      <p style="font-size:14px; color:var(--ink-soft); max-width:620px; margin-bottom:32px; line-height:1.8;">Volunteering has been a meaningful part of both my personal and professional growth.</p>
+      <div class="volunteer-list">
+        <div class="volunteer-item">
+          <h3>Youth Mentor</h3>
+          <div class="org">Ywama Baptist Church, Myanmar · Feb 2023 — Present</div>
+          <p>As a previous Youth Mentor, I organised weekly sessions for younger students, combining creative activities like origami with values-based discussions to foster teamwork and spiritual growth.</p>
+        </div>
+        <div class="volunteer-item">
+          <h3>kidsREAD Volunteer</h3>
+          <div class="org">MacPherson Community Club · NYP CCA Mentoring Club</div>
+          <p>I support primary school students in improving their English through guided reading, writing, and interactive literacy activities. These experiences have helped me grow as a communicator, nurturer, and problem-solver, all while giving back to the community.</p>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="divider" style="margin-bottom:40px;"></div>
+
+    <!-- TESTIMONIALS -->
+    <div class="about-section" style="margin-bottom:0;">
+      <h2 class="about-section-title" style="font-weight: 600;">What people say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">Thadar Hpone Myat possesses a unique ability to provide comprehensive support to students in all subjects within the IGCSE curriculum. Her dedication goes beyond the call of duty.</div>
+          <div class="testimonial-author">
+            <div class="name">Ms. Christal Po</div>
+            <div class="role">Principal, Diplomatic School, Yangon, Myanmar</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">Doris has a gift for explaining complex concepts in a clear, patient, and engaging way that truly connects with my daughter. The difference she has made in my daughter's Math journey is truly priceless.</div>
+          <div class="testimonial-author">
+            <div class="name">Syakina's Mum</div>
+            <div class="role">Tutoring Parent</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider" style="margin-bottom:20px;"></div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">Doris is the kind of teammate everyone hopes to have—super reliable, always up for learning something new, and ready to jump in wherever she's needed. She's great at both the technical side and the design side, and her positive attitude makes working together genuinely enjoyable. Doris is quick to ask the right questions, share helpful ideas, and keep everyone in the loop. If you want someone who's easy to work with and always brings their best, Doris is the one to have on your team.</div>
+          <div class="testimonial-author">
+            <div class="name">Nicholas Dubs</div>
+            <div class="role">Project Partner, NYP</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">Doris is a thoughtful and responsible leader, student and friend. As the President of SoundCard, she is able to lead meetings, staying firm when needed while facilitating open conversations. She also shows her enthusiasm and responsibility by ensuring that herself and the committee stays on task. Doris also shows great time management and understanding of priorities, juggling studies with committee work. She knows how to prioritise tasks, allowing her to assimilate both roles effectively. Lastly, she is highly understanding and shows great care for her fellow peers, often checking up on them and  providing emotional support where needed.</div>
+          <div class="testimonial-author">
+            <div class="name">Ng Si Qi, Kaylen</div>
+            <div class="role">Vice President, SoundCard</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider" style="margin-top:40px; margin-bottom:40px;"></div>
+
+      <div class="memories-row">
+        <div class="memory-item">
+          <img src="images/Minister.jpg" alt="With Minister of Education" class="memory-photo" />
+          <p class="memory-caption">With Senior Minister of State for Education in 2025</p>
+        </div>
+        <div class="memory-item">
+          <img src="images/Director.jpg" alt="Director's List" class="memory-photo" />
+          <p class="memory-caption">Director's List</p>
+        </div>
+        <div class="memory-item">
+          <img src="images/President.jpg" alt="SoundCard President" class="memory-photo" />
+          <p class="memory-caption">SoundCard President</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Portfolio. All rights reserved.</span>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+
+</body>
+</html>

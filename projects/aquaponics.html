@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Aquaponics System — Doris Thadar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .back-link {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--red); }
+
+    .project-meta-row {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 40px 0 56px;
+      padding: 28px 0;
+      border-top: 1px solid var(--cream-dark);
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .meta-item .label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+    .meta-item .value { font-size: 14px; color: var(--ink-soft); }
+
+    /* HERO IMAGE */
+    .project-hero-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      margin-bottom: 56px;
+    }
+
+    /* BODY TEXT */
+    .project-body-text {
+      max-width: 680px;
+      margin-bottom: 56px;
+    }
+    .project-body-text h2 {
+      font-size: 28px;
+      margin: 40px 0 16px;
+    }
+    .project-body-text h2:first-child { margin-top: 0; }
+    .project-body-text p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+    .project-body-text a {
+      color: var(--red);
+      text-decoration: none;
+      border-bottom: 1px solid var(--red);
+      padding-bottom: 1px;
+      transition: opacity 0.2s;
+    }
+    .project-body-text a:hover { opacity: 0.7; }
+
+    /* IMAGE GRID */
+    .img-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+    .img-grid .proto {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .img-grid .bottom-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items: stretch;
+    }
+    .img-grid .block {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .img-grid .side-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .img-grid .side {
+      width: 100%;
+      height: auto;
+      display: block;
+      flex: 1;
+    }
+
+    /* STACK TAGS */
+    .stack-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 56px; }
+    .project-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--red);
+      border: 1px solid var(--red);
+      padding: 5px 12px;
+    }
+
+    /* LINKS ROW */
+    .project-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    /* YOUTUBE EMBED */
+    .youtube-section { margin-bottom: 56px; }
+    .youtube-section h2 {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+    .youtube-thumb-link {
+      display: block;
+      max-width: 720px;
+      position: relative;
+      text-decoration: none;
+    }
+    .youtube-thumb-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .youtube-play-btn {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      padding: 8px 18px;
+      transition: background 0.2s;
+    }
+    .youtube-thumb-link:hover .youtube-play-btn {
+      background: var(--red-light);
+    }
+
+    /* NAV FOOTER */
+    .project-nav-footer {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 40px;
+      border-top: 1px solid var(--cream-dark);
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .project-nav-footer a { color: var(--red); text-decoration: none; }
+    .project-nav-footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 700px) {
+      .img-grid { grid-template-columns: 1fr; }
+      .img-grid img.wide { grid-column: span 1; aspect-ratio: 4/3; }
+      .project-hero-img { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="circuit-spine"></div>
+
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo">DT PORTFOLIO</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../projects.html" class="active">Projects</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main class="page">
+    <a href="../projects.html" class="back-link">← Back to projects</a>
+
+    <p class="section-eyebrow">// Project 01</p>
+    <h1 class="page-title">Smart Aquaponics System</h1>
+    <p class="page-sub">Automated sustainable farming system — 1st Prize, NYP TechNexus 2025.</p>
+
+    <div class="project-meta-row">
+      <div class="meta-item">
+        <div class="label">Role</div>
+        <div class="value">Coding · Sensor Calibration · Logic Design</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Type</div>
+        <div class="value">Team Project · IoT</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Result</div>
+        <div class="value">1st Prize — NYP TechNexus 2025</div>
+      </div>
+      <div class="meta-item">
+        <div class="label">Stack</div>
+        <div class="value">M5Stack · UIFlow2 · MQTT</div>
+      </div>
+    </div>
+
+    <!-- HERO IMAGE -->
+    <img class="project-hero-img" src="../images/4AquaPrize.png" alt="Smart Aquaponics System Overview" />
+
+    <!-- WRITEUP -->
+    <div class="project-body-text">
+      <h2>About the project</h2>
+      <p>I collaborated with my team to develop a Smart Aquaponics System that automates sustainable farming using fish tank waste as natural fertilizer. The system recycles water in a closed loop to nourish crops while reducing environmental impact.</p>
+
+      <h2>How it's built</h2>
+      <p>We used M5Stack modules and UIFlow2 to automate key parameters such as pH, EC, light, temperature, and water flow. I contributed to the coding, sensor calibration, and logic design to support multi-crop growth conditions. The prototype was built using low-cost materials, with adjustable covers and efficient control systems to simulate real-world smart farming environments.</p>
+
+      <h2>Outcome</h2>
+      <p>This project led our team to win First Prize at NYP's TechNexus event, in collaboration with industry partners — an experience that deepened my interest in IoT, environmental technology, and automation.</p>
+    </div>
+
+    <!-- IMAGE GRID -->
+    <!-- <div class="img-grid">
+      <img src="../images/4AquaPrototype.png" alt="Aquaponics prototype build" />
+      <img src="../images/4AquaMaster.png" alt="Master M5Stack unit" />
+      <img src="../images/4AquaSlave.png" alt="Slave M5Stack unit" />
+      <img class="wide" src="../images/4AquaBlock.png" alt="System block diagram" />
+    </div> -->
+    <div class="img-grid">
+      <img class="proto" src="../images/4AquaPrototype.png" alt="Aquaponics prototype build" />
+      <div class="bottom-row">
+        <img class="block" src="../images/4AquaBlock.png" alt="System block diagram" />
+        <div class="side-col">
+          <img class="side" src="../images/4AquaMaster.png" alt="Master M5Stack unit" />
+          <img class="side" src="../images/4AquaSlave.png" alt="Slave M5Stack unit" />
+        </div>
+      </div>
+    </div>
+
+    <!-- TECH STACK -->
+    <div class="stack-row">
+      <span class="project-badge">M5Stack</span>
+      <span class="project-badge">UIFlow2</span>
+      <span class="project-badge">MQTT</span>
+      <span class="project-badge">IoT</span>
+      <span class="project-badge">Sensor Calibration</span>
+      <span class="project-badge">Sustainable Farming</span>
+    </div>
+
+    <!-- EXTERNAL LINKS -->
+    <div class="project-links">
+      <a href="https://www.hackster.io/tacobell/smart-urban-farming-powered-by-aquaponics-cc511b" target="_blank" class="btn-primary">View on Hackster.io</a>
+    </div>
+
+    <!-- YOUTUBE -->
+    <div class="youtube-section">
+      <h2>Demo Video</h2>
+      <a href="https://youtu.be/JYUBesdTa9k?si=gWOfTrqGiIMx7xpq" target="_blank" class="youtube-thumb-link">
+        <img
+          src="https://img.youtube.com/vi/JYUBesdTa9k/maxresdefault.jpg"
+          alt="Smart Aquaponics Demo Video"
+          class="youtube-thumb-img"
+        />
+        <div class="youtube-play-btn">▶ Watch on YouTube</div>
+      </a>
+    </div>
+
+    <!-- PREV / NEXT -->
+    <div class="project-nav-footer">
+      <a href="../projects.html">← All Projects</a>
+      <a href="homeguardian.html">Next: Home Guardian →</a>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Portfolio. All rights reserved.</span>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  </script>
+
+</body>
+</html>
