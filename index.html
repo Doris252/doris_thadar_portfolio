@@ -2,263 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+    <script>
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Doris Thadar — Electronic &amp; Computer Engineering</title>
   <meta name="description" content="Doris Thadar — Electronic & Computer Engineering student. Embedded systems, IoT, and full-stack projects." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* HOME-SPECIFIC */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding-top: 120px;
-      padding-left: 90px;
-      padding-right: 90px;
-      position: relative;
-      max-width: 100%;
-    }
-    .hero-tagline {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--red);
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
-    .hero-name {
-      font-family: var(--serif);
-      font-size: clamp(56px, 9vw, 112px);
-      font-weight: 300;
-      line-height: 1.0;
-      color: var(--ink);
-      margin-bottom: 12px;
-    }
-    .hero-name em { font-style: italic; color: var(--red); }
-    .hero-title {
-      font-family: var(--serif);
-      font-size: clamp(14px, 2vw, 20px);
-      font-weight: 300;
-      font-style: italic;
-      color: var(--ink-muted);
-      margin-bottom: 16px;
-      letter-spacing: 0.05em;
-    }
-    .hero-bio {
-      font-size: 14px;
-      color: var(--ink-soft);
-      max-width: 520px;
-      line-height: 1.9;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-    .hero-cta-row {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-
-    /* SOCIAL ICONS ROW */
-    .hero-socials {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      margin-bottom: 2px;
-    }
-    .hero-socials a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border: 1px solid var(--cream-dark);
-      color: var(--ink-muted);
-      text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .hero-socials a:hover {
-      border-color: var(--red);
-      color: var(--red);
-    }
-    .hero-socials svg {
-      width: 16px;
-      height: 16px;
-      fill: currentColor;
-    }
-
-    .hero-scroll-hint {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--ink-muted);
-      letter-spacing: 0.2em;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      white-space: nowrap;
-    }
-    .hero-scroll-hint::before { content: ''; width: 40px; height: 1px; background: var(--ink-muted); }
-    .hero-decor {
-      position: absolute;
-      right: 80px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--red);
-      opacity: 0.18;
-      writing-mode: vertical-rl;
-      letter-spacing: 0.3em;
-      user-select: none;
-    }
-
-    /* HIGHLIGHTS STRIP */
-    #highlights {
-      padding: 20px 60px 100px 90px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .highlights-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      background: var(--cream-dark);
-    }
-    .highlight-card {
-      background: var(--white);
-      padding: 32px 28px;
-    }
-    .highlight-num {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--red);
-      letter-spacing: 0.1em;
-      margin-bottom: 12px;
-    }
-    .highlight-card h3 {
-      font-family: var(--serif);
-      font-size: 24px;
-      font-weight: 400;
-      margin-bottom: 10px;
-    }
-    .highlight-card p {
-      font-size: 13px;
-      color: var(--ink-soft);
-      line-height: 1.7;
-      margin-bottom: 6px;
-    }
-
-    /* FEATURED PROJECTS */
-    #featured {
-      padding: 0 60px 110px 90px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .featured-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .featured-head h2 { font-size: clamp(28px, 4vw, 40px); }
-    .view-all-link {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--red);
-      text-decoration: none;
-      border-bottom: 1px solid var(--red);
-      padding-bottom: 2px;
-    }
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 340px);
-      gap: 16px;
-      background: transparent;
-      justify-content: center;
-    }
-    .featured-card {
-      background: var(--white);
-      text-decoration: none;
-      color: var(--ink);
-      display: block;
-      transition: background 0.2s, transform 0.25s ease, box-shadow 0.25s ease;
-      border: 1px solid var(--cream-dark);
-    }
-    .featured-card:hover {
-      background: var(--blue-muted);
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(122, 24, 24, 0.10);
-    }
-    .featured-thumb {
-      height: 200px;
-      background: linear-gradient(135deg, var(--red) 0%, #2a1414 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .featured-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      opacity: 0.85;
-      transition: opacity 0.3s;
-    }
-    .featured-card:hover .featured-thumb img { opacity: 1; }
-    .featured-thumb::after {
-      content: attr(data-tag);
-      position: absolute;
-      bottom: 10px; left: 14px;
-      font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--cream);
-      background: var(--red);
-      padding: 3px 8px;
-      opacity: 1;
-    }
-    .featured-body { padding: 18px 20px 22px; }
-    .featured-body h3 {
-      font-family: var(--serif);
-      font-size: 19px;
-      font-weight: 400;
-      margin-bottom: 6px;
-    }
-    .featured-body p { font-size: 12px; color: var(--ink-soft); line-height: 1.65; }
-
-    @media (max-width: 860px) {
-      #hero { padding-left: 48px; }
-      .hero-scroll-hint { left: 48px; }
-      .hero-decor { display: none; }
-      .highlights-grid { grid-template-columns: 1fr; }
-      .featured-grid { grid-template-columns: 1fr; justify-content: unset; }
-      #highlights, #featured { padding-left: 48px; padding-right: 24px; }
-    }
-  </style>
+  <script src="js/site.js" defer></script>
 </head>
 <body>
 
-  <div class="circuit-spine"></div>
+  <aside class="waveform-spine" aria-hidden="true">
+    <svg class="waveform-spine__svg" viewBox="0 0 48 800" preserveAspectRatio="none">
+      <path class="waveform-spine__trace--ghost" d="M26,0 C10,50 38,150 26,250 C14,350 42,450 26,550 C10,650 38,750 26,800" />
+      <path class="waveform-spine__trace" d="M22,0 C6,50 34,150 22,250 C10,350 38,450 22,550 C6,650 34,750 22,800" />
+      <circle class="waveform-spine__dot" cx="22" cy="400" r="3" />
+    </svg>
+  </aside>
 
-  <!-- NAV -->
   <nav id="navbar">
-    <a href="index.html" class="nav-logo">DT PORTFOLIO</a>
+    <a href="index.html" class="nav-logo">DT Portfolio</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="projects.html">Projects</a></li>
@@ -266,13 +34,23 @@
       <li><a href="resume.html">Resume</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+        <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+        <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
-  <!-- HERO -->
-  <section id="hero">
+  <section id="hero" class="reveal">
     <p class="hero-tagline">Electronic &amp; Computer Engineering · Nanyang Polytechnic</p>
     <p class="hero-title">Who am I?</p>
     <h1 class="hero-name">Hello!<br/><em>I'm Doris.</em></h1>
@@ -281,25 +59,21 @@
     </p>
 
     <div class="hero-cta-row">
-      <a href="projects.html" class="btn-primary">View Projects</a>
-      <a href="contact.html" class="btn-ghost">Say Hello</a>
+      <a href="projects.html" class="btn-primary">View projects</a>
+      <a href="contact.html" class="btn-ghost">Say hello</a>
     </div>
 
-    <!-- SOCIAL ICONS -->
     <div class="hero-socials">
-      <!-- GitHub -->
       <a href="https://github.com/doristhadar" target="_blank" title="GitHub">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
         </svg>
       </a>
-      <!-- LinkedIn -->
       <a href="https://www.linkedin.com/in/thadar-hpone-myat-9a149136b" target="_blank" title="LinkedIn">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
         </svg>
       </a>
-      <!-- Mail -->
       <a href="mailto:thadarhpm22@gmail.com" title="Email">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
@@ -308,35 +82,36 @@
     </div>
 
     <p class="hero-scroll-hint">Scroll to explore</p>
-    <!-- <div class="hero-decor">ECE · IOT · EMBEDDED · PCB · WEB · PYTHON · C</div> -->
   </section>
 
-  <div class="divider"></div>
+  <div class="waveform-divider" aria-hidden="true">
+    <svg viewBox="0 0 800 24" preserveAspectRatio="none">
+      <path fill="none" stroke="currentColor" stroke-width="1" d="M0,12 C40,2 80,22 120,12 C160,2 200,22 240,12 C280,2 320,22 360,12 C400,2 440,22 480,12 C520,2 560,22 600,12 C640,2 680,22 720,12 C760,2 800,22 800,12" />
+    </svg>
+  </div>
 
-  <!-- HIGHLIGHTS -->
-  <section id="highlights">
+  <section id="highlights" class="reveal">
     <div class="highlights-grid">
       <div class="highlight-card">
         <div class="highlight-num">GPA</div>
-        <h3 style="font-family: 'Times New Roman', Times, serif; font-size: 17px;">4.0</h3>
+        <h3>4.0</h3>
         <p>Director's List all 4 Semesters at Nanyang Polytechnic.</p>
       </div>
       <div class="highlight-card">
-        <div class="highlight-num">AWARDS</div>
-        <h3 style="font-family: 'Times New Roman', Times, serif; font-size: 17px;">1st Prize x2</h3>
+        <div class="highlight-num">Awards</div>
+        <h3>1st Prize ×2</h3>
         <p>NiCE Hack 2025: Hardware Cybersecurity Hackathon @ NTU (Pre-University Category).</p>
-        <p>Smart Aquaponics System - NYP TechNexus, in collaboration with industry partners.</p>
+        <p>Smart Aquaponics System — NYP TechNexus, in collaboration with industry partners.</p>
       </div>
       <div class="highlight-card">
-        <div class="highlight-num">BEYOND</div>
+        <div class="highlight-num">Beyond</div>
         <h3>Tutor &amp; Mentor</h3>
         <p>Private home tutor and academic tutor across two countries, plus youth mentoring and community volunteering.</p>
       </div>
     </div>
   </section>
 
-  <!-- FEATURED PROJECTS -->
-  <section id="featured">
+  <section id="featured" class="reveal">
     <div class="featured-head">
       <h2>Selected work</h2>
       <a href="projects.html" class="view-all-link">View all projects →</a>
@@ -384,30 +159,6 @@
   <footer>
     <span>© 2026 Portfolio. All rights reserved.</span>
   </footer>
-
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
-
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('section').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(24px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(el);
-    });
-  </script>
 
 </body>
 </html>

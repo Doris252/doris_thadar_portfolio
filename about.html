@@ -2,84 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+    <script>
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About - Doris Thadar</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .about-intro {
-      max-width: 700px;
-      margin-bottom: 10px;
-    }
-    .about-intro p {
-      font-size: 15px;
-      color: var(--ink-soft);
-      line-height: 1.95;
-      margin-bottom: 18px;
-    }
-
-    .about-section { margin-bottom: 64px; }
-    .about-section-title {
-      font-size: 30px;
-      margin-bottom: 28px;
-    }
-    .about-section-title h2 {font-weight: 500;}
-
-    .hobby-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      background: var(--cream-dark);
-    }
-    .hobby-card { background: var(--white); padding: 30px 10px; }
-    .hobby-card h3 { font-size: 21px; margin-bottom: 10px; font-weight: 300; }
-    .hobby-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.8; }
-
-    .volunteer-list { display: flex; flex-direction: column; gap: 28px; }
-    .volunteer-item { border-left: 2px solid var(--red); padding-left: 20px; }
-    .volunteer-item h3 { font-size: 20px; margin-bottom: 4px; font-weight: 300;}
-    .volunteer-item .org { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
-    .volunteer-item p { font-size: 13px; color: var(--ink-soft); line-height: 1.8; }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      background: var(--cream-dark);
-    }
-    .testimonial-card { background: var(--white); padding: 32px 28px; }
-    .testimonial-quote {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 13px;
-      font-style: italic;
-      color: var(--ink-soft);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    .testimonial-quote::before {
-      content: '\201C';
-      font-size: 38px;
-      color: var(--red);
-      line-height: 0;
-      vertical-align: -12px;
-      margin-right: 3px;
-    }
-    .testimonial-author .name { font-size: 13px; font-weight: 500; color: var(--ink); }
-    .testimonial-author .role { font-family: var(--mono); font-size: 10px; color: var(--ink-muted); margin-top: 2px; letter-spacing: 0.08em; }
-
-    @media (max-width: 860px) {
-      .hobby-grid, .testimonials-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <script src="js/site.js" defer></script>
 </head>
 <body>
 
-  <div class="circuit-spine"></div>
+  <aside class="waveform-spine" aria-hidden="true">
+    <svg class="waveform-spine__svg" viewBox="0 0 48 800" preserveAspectRatio="none">
+      <path class="waveform-spine__trace--ghost" d="M26,0 C10,50 38,150 26,250 C14,350 42,450 26,550 C10,650 38,750 26,800" />
+      <path class="waveform-spine__trace" d="M22,0 C6,50 34,150 22,250 C10,350 38,450 22,550 C6,650 34,750 22,800" />
+      <circle class="waveform-spine__dot" cx="22" cy="400" r="3" />
+    </svg>
+  </aside>
 
   <nav id="navbar">
-    <a href="index.html" class="nav-logo">DT PORTFOLIO</a>
+    <a href="index.html" class="nav-logo">DT Portfolio</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="projects.html">Projects</a></li>
@@ -87,12 +33,23 @@
       <li><a href="resume.html">Resume</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+        <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+        <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
-  <main class="page">
+  <main class="page reveal">
     <!-- <p class="section-eyebrow">// About</p> -->
     <h1 class="page-title">About Me</h1>
 
@@ -220,20 +177,8 @@
     </div>
   </main>
 
-    </div>
-  </main>
-
   <footer>
     <span>© 2026 Portfolio. All rights reserved.</span>
   </footer>
-
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-  </script>
-
 </body>
 </html>

@@ -2,162 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+    <script>
+    (function () {
+      var t = localStorage.getItem('theme');
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume - Doris Thadar</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .resume-header-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 48px;
-    }
-
-    /* TWO COLUMN LAYOUT */
-    .resume-columns {
-      display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      gap: 0;
-      border: 1px solid var(--cream-dark);
-    }
-
-    /* LEFT COLUMN */
-    .resume-left {
-      background: #F0EAE2;
-      padding: 36px 28px;
-      border-right: 1px solid var(--cream-dark);
-    }
-
-    /* RIGHT COLUMN */
-    .resume-right {
-      background: var(--white);
-      padding: 36px 36px;
-    }
-
-    .resume-block { margin-bottom: 36px; }
-    .resume-block:last-child { margin-bottom: 0; }
-
-    .resume-block h2 {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 14px;
-      font-weight: 600;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--cream-dark);
-    }
-
-    /* CONTACT */
-    .contact-list { display: flex; flex-direction: column; gap: 8px; }
-    .contact-list a, .contact-list span {
-      font-size: 12px;
-      color: var(--ink-soft);
-      text-decoration: none;
-      line-height: 1.5;
-    }
-    .contact-list a:hover { color: var(--red); }
-
-    /* SKILLS */
-    .skill-list { display: flex; flex-wrap: wrap; gap: 6px; }
-    .skill-pill {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--ink-soft);
-      background: var(--white);
-      border: 1px solid var(--cream-dark);
-      padding: 4px 10px;
-    }
-
-    /* SKILL GROUPS (hard skills with categories) */
-    .skill-group { margin-bottom: 12px; }
-    .skill-group-label {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--red);
-      letter-spacing: 0.08em;
-      margin-bottom: 5px;
-    }
-    .skill-group .skill-list { gap: 5px; }
-
-    /* TIMELINE */
-    .resume-timeline {
-      border-left: 1px solid var(--cream-dark);
-      padding-left: 24px;
-      margin-left: 4px;
-    }
-    .timeline-item { position: relative; padding-bottom: 28px; }
-    .timeline-item:last-child { padding-bottom: 0; }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -29px;
-      top: 6px;
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--white);
-      border: 2px solid var(--red);
-    }
-    .timeline-period {
-      font-family: var(--mono);
-      font-size: 9px;
-      color: var(--red);
-      letter-spacing: 0.1em;
-      margin-bottom: 3px;
-    }
-    .timeline-item h3 {
-      font-family: var(--serif);
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 1px;
-      color: var(--ink);
-    }
-    .timeline-org {
-      font-size: 12px;
-      color: var(--ink-muted);
-      margin-bottom: 8px;
-    }
-    .timeline-item ul { padding-left: 16px; }
-    .timeline-item li {
-      font-size: 12px;
-      color: var(--ink-soft);
-      line-height: 1.75;
-      margin-bottom: 2px;
-    }
-
-    /* ACHIEVEMENTS */
-    .achievements-list { display: flex; flex-direction: column; gap: 16px; }
-    .achievement-item .org {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 4px;
-    }
-    .achievement-item ul { padding-left: 16px; margin: 0; }
-    .achievement-item li {
-      font-size: 12px;
-      color: var(--ink-soft);
-      line-height: 1.75;
-    }
-
-    @media (max-width: 860px) {
-      .resume-columns { grid-template-columns: 1fr; }
-      .resume-left { border-right: none; border-bottom: 1px solid var(--cream-dark); }
-    }
-  </style>
+  <script src="js/site.js" defer></script>
 </head>
 <body>
 
-  <div class="circuit-spine"></div>
+  <aside class="waveform-spine" aria-hidden="true">
+    <svg class="waveform-spine__svg" viewBox="0 0 48 800" preserveAspectRatio="none">
+      <path class="waveform-spine__trace--ghost" d="M26,0 C10,50 38,150 26,250 C14,350 42,450 26,550 C10,650 38,750 26,800" />
+      <path class="waveform-spine__trace" d="M22,0 C6,50 34,150 22,250 C10,350 38,450 22,550 C6,650 34,750 22,800" />
+      <circle class="waveform-spine__dot" cx="22" cy="400" r="3" />
+    </svg>
+  </aside>
 
   <nav id="navbar">
-    <a href="index.html" class="nav-logo">DT PORTFOLIO</a>
+    <a href="index.html" class="nav-logo">DT Portfolio</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="projects.html">Projects</a></li>
@@ -165,12 +33,23 @@
       <li><a href="resume.html" class="active">Resume</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+        <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+        <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
-  <main class="page">
+  <main class="page reveal">
     <div class="resume-header-row">
       <div>
         <p class="section-eyebrow">// Resume</p>
@@ -392,14 +271,5 @@
   <footer>
     <span>© 2026 Portfolio. All rights reserved.</span>
   </footer>
-
-  <script>
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
-  </script>
-
 </body>
 </html>
